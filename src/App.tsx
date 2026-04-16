@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Database, TrendingDown, Users, Calculator, FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Database, TrendingDown, Users, FileText } from 'lucide-react';
 import './App.css';
 
 const accounts = [
@@ -91,7 +91,7 @@ function App() {
             <div className="terminal-header">CALCULATOR: LIFE-LEASE_VALUATION</div>
             <div className="lease-content">
               <div className="lease-info">
-                <Calculator size={20} className="mono-green" />
+                <Database size={20} />
                 <p>Calculate your remaining operational life based on Alpha-debt holdings.</p>
               </div>
               <form onSubmit={calculateLease} className="lease-form">
