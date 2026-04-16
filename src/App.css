@@ -26,6 +26,31 @@ body {
   position: relative;
 }
 
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .ledger-nav {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ledger-split {
+    grid-template-columns: 1fr;
+  }
+
+  .meeting-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .grid-overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
