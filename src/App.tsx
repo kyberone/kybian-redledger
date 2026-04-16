@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Database, TrendingDown, Users, Calculator, FileText } from 'lucide-react';
 import './App.css';
