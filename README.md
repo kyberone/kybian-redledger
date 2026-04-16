@@ -1,73 +1,20 @@
-# React + TypeScript + Vite
+# THE RED LEDGER [The Auditor's Spire]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+"Everything has a price. Every debt is recorded."
 
-Currently, two official plugins are available:
+Welcome to the central core of the Red Ledger. Access to these accounts is restricted to authorized accountants and recovery agents.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## [ SYNDICATE OVERVIEW ]
+The Red Ledger manages the financial infrastructure of the underworld. Based in the Auditor's Spire, we handle info-brokering, Alpha-laundering, and the management of Life-Leases. We ensure that value is extracted, one way or another.
 
-## React Compiler
+## [ AUDIT TOOLS ]
+- **Recovery Queues:** Interactive database of active debts, overdue accounts, and collection statuses.
+- **Life-Lease Calculator:** Proprietary valuation tool for estimating remaining operational lifespan based on debt holdings.
+- **Intel Feed:** Transcripts and notes from board meetings regarding Alpha-collapse mitigation.
+- **Debt Ticker:** Real-time monitoring of recovery progress across all sectors.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## [ ACCOUNTING NOTICE ]
+All transactions are final. Refusal to pay will result in Level 5 repossession of all physical and biological assets.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+*TERMINAL v4.2 // NO UNAUTHORIZED LOGS // ALL TRANSACTIONS FINAL*

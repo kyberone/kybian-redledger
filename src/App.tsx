@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Database, TrendingDown, Users, Search, DollarSign, Lock, Terminal, Calculator, FileText, ChevronRight } from 'lucide-react';
+import { Database, TrendingDown, Users, Calculator, FileText } from 'lucide-react';
 import './App.css';
 
 const accounts = [
