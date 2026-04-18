@@ -15,6 +15,7 @@ function App() {
   const [debtInput, setDebtInput] = useState('500000');
   const [calculatedLife, setCalculatedLife] = useState<number | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [isGameOpen, setIsGameOpen] = useState(false);
 
   const calculateLease = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,7 +39,7 @@ function App() {
           <a href="#assets">ASSETS</a>
           <a href="#recovery">RECOVERY</a>
           <a href="#lease">LIFE-LEASE</a>
-          <a href="#veil-runner" className="active-nav"><Rocket size={14} /> VEIL_RUNNER</a>
+          <button onClick={() => setIsGameOpen(true)} className="nav-game-btn"><Rocket size={14} /> VEIL_RUNNER</button>
           <a href="https://kybian.com" className="exit-btn">EXIT_HUB</a>
         </nav>
       </header>
@@ -63,8 +64,16 @@ function App() {
         </section>
 
         <div className="ledger-split">
-          <section id="veil-runner" className="game-section">
-            <DebtRun />
+          <section className="terminal-window access-section">
+            <div className="terminal-header">SUBSYSTEM: DEBT_MITIGATION_TERMINAL</div>
+            <div className="terminal-content access-prompt">
+              <Rocket size={40} className="mb-20" />
+              <h3 className="mono">VEIL_RUNNER_INTERFACE</h3>
+              <p>Direct neural link to stealth ship telemetry. Perform high-risk Veil runs to manually reduce Life-Lease debt holdings.</p>
+              <button onClick={() => setIsGameOpen(true)} className="btn-terminal">
+                INITIALIZE_TERMINAL_LINK
+              </button>
+            </div>
           </section>
 
           <div className="side-column">
@@ -151,6 +160,29 @@ function App() {
         </div>
         <p className="mono">TERMINAL v4.2 // NO UNAUTHORIZED LOGS // ALL TRANSACTIONS FINAL</p>
       </footer>
+
+      <AnimatePresence>
+        {isGameOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="game-modal-overlay"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="game-modal-content"
+            >
+              <button className="modal-close" onClick={() => setIsGameOpen(false)}>
+                [ DISCONNECT_TERMINAL ]
+              </button>
+              <DebtRun />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
