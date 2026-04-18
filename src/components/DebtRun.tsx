@@ -113,7 +113,7 @@ const DebtRun: React.FC = () => {
         }
       });
 
-      if (scoreRef.current >= 5000000) {
+      if (scoreRef.current >= 3000000) {
         setGameState('GAMEOVER');
       }
     };
@@ -240,7 +240,7 @@ const DebtRun: React.FC = () => {
                   <p>• [ MOUSE ]: STEER YOUR STEALTH SHIP</p>
                 </div>
                 <div className="controls-hint">
-                  <p>WARNING: IF DEBT EXCEEDS 5.0M ALPHA, YOUR LIFE-LEASE IS TERMINATED.</p>
+                  <p>WARNING: IF DEBT EXCEEDS 3.0M ALPHA, YOUR LIFE-LEASE IS TERMINATED.</p>
                 </div>
                 <button onClick={startGame} className="btn-start">
                   INITIATE_VEIL_JUMP
