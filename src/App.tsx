@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Database, TrendingDown, Users, FileText } from 'lucide-react';
+import { Database, TrendingDown, Users, FileText, Rocket } from 'lucide-react';
+import DebtRun from './components/DebtRun';
 import './App.css';
 
 const accounts = [
@@ -37,6 +38,7 @@ function App() {
           <a href="#assets">ASSETS</a>
           <a href="#recovery">RECOVERY</a>
           <a href="#lease">LIFE-LEASE</a>
+          <a href="#veil-runner" className="active-nav"><Rocket size={14} /> VEIL_RUNNER</a>
           <a href="https://kybian.com" className="exit-btn">EXIT_HUB</a>
         </nav>
       </header>
@@ -61,68 +63,100 @@ function App() {
         </section>
 
         <div className="ledger-split">
-          <section className="terminal-window data-section">
-            <div className="terminal-header">DATABASE: ACTIVE_RECOVERY_QUEUES</div>
-            <div className="table-wrap">
-              <table className="data-table">
-                <thead>
-                  <tr>
-                    <th>ACC_ID</th>
-                    <th>CLIENT_ENTITY</th>
-                    <th>DEBT_VALUE</th>
-                    <th>STATUS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {accounts.map(acc => (
-                    <tr key={acc.id} className={acc.status === 'OVERDUE' ? 'row-overdue' : ''}>
-                      <td>{acc.id}</td>
-                      <td>{acc.client}</td>
-                      <td>{acc.debt}</td>
-                      <td className={acc.status === 'OVERDUE' ? 'blink' : ''}>{acc.status}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <section id="veil-runner" className="game-section">
+            <DebtRun />
           </section>
 
-          <section id="lease" className="terminal-window lease-section">
-            <div className="terminal-header">CALCULATOR: LIFE-LEASE_VALUATION</div>
-            <div className="lease-content">
-              <div className="lease-info">
-                <Database size={20} />
-                <p>Calculate your remaining operational life based on Alpha-debt holdings.</p>
-              </div>
-              <form onSubmit={calculateLease} className="lease-form">
-                <div className="input-row">
-                  <label>CURRENT_DEBT (ALPHA):</label>
-                  <input 
-                    type="number" 
-                    value={debtInput} 
-                    onChange={(e) => setDebtInput(e.target.value)}
-                  />
+          <div className="side-column">
+            <section id="lease" className="terminal-window lease-section">
+              <div className="terminal-header">CALCULATOR: LIFE-LEASE_VALUATION</div>
+              <div className="lease-content">
+                <div className="lease-info">
+                  <Database size={20} />
+                  <p>Calculate your remaining operational life based on Alpha-debt holdings.</p>
                 </div>
-                <button type="submit" disabled={isCalculating}>
-                  {isCalculating ? 'ANALYZING_MARKET...' : 'GENERATE_LEASE_TERM'}
-                </button>
-              </form>
-              <AnimatePresence>
-                {calculatedLife !== null && (
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="lease-result"
-                  >
-                    <div className="result-label">ESTIMATED_REMAINING_LIFE:</div>
-                    <div className="result-value">{calculatedLife} MONTHS</div>
-                    <div className="result-warning">WARNING: INTEREST RATES SUBJECT TO FRACTURE INSTABILITY.</div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </section>
+                <form onSubmit={calculateLease} className="lease-form">
+                  <div className="input-row">
+                    <label>CURRENT_DEBT (ALPHA):</label>
+                    <input 
+                      type="number" 
+                      value={debtInput} 
+                      onChange={(e) => setDebtInput(e.target.value)}
+                    />
+                  </div>
+                  <button type="submit" disabled={isCalculating}>
+                    {isCalculating ? 'ANALYZING_MARKET...' : 'GENERATE_LEASE_TERM'}
+                  </button>
+                </form>
+                <AnimatePresence>
+                  {calculatedLife !== null && (
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="lease-result"
+                    >
+                      <div className="result-label">ESTIMATED_REMAINING_LIFE:</div>
+                      <div className="result-value">{calculatedLife} MONTHS</div>
+                      <div className="result-warning">WARNING: INTEREST RATES SUBJECT TO FRACTURE INSTABILITY.</div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </section>
+
+            <section className="terminal-window data-section">
+              <div className="terminal-header">DATABASE: ACTIVE_RECOVERY_QUEUES</div>
+              <div className="table-wrap">
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>ACC_ID</th>
+                      <th>CLIENT_ENTITY</th>
+                      <th>STATUS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {accounts.map(acc => (
+                      <tr key={acc.id} className={acc.status === 'OVERDUE' ? 'row-overdue' : ''}>
+                        <td>{acc.id}</td>
+                        <td>{acc.client}</td>
+                        <td className={acc.status === 'OVERDUE' ? 'blink' : ''}>{acc.status}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
         </div>
+
+        <section className="meeting-panel terminal-window">
+          <div className="terminal-header">INTEL_FEED: BOARD_MEETING_242</div>
+          <div className="meeting-content">
+             <div className="meeting-img">
+               <img src="/images/ledger-meeting.png" alt="Board" />
+             </div>
+             <div className="meeting-notes">
+               <h3 className="mono">AGENDA: ALPHA_COLLAPSE_MITIGATION</h3>
+               <p>Targeting secondary faction assets. Authorization granted for Level 5 repossession of all Axium-aligned ore-haulers in Sector 4.</p>
+               <button className="btn-terminal mt-10"><FileText size={14}/> DOWNLOAD_TRANSCRIPT.PDF</button>
+             </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="ledger-footer">
+        <div className="ticker-ledger">
+          <span>DEBT_RECOVERY_IN_PROGRESS... RL-442: 12.1M... RL-109: 44k... RL-882: 1.5B... RL-332: 9.4M... RL-551: 2.2M...</span>
+        </div>
+        <p className="mono">TERMINAL v4.2 // NO UNAUTHORIZED LOGS // ALL TRANSACTIONS FINAL</p>
+      </footer>
+    </div>
+  );
+}
+
+export default App;
+
 
         <section className="meeting-panel terminal-window">
           <div className="terminal-header">INTEL_FEED: BOARD_MEETING_242</div>

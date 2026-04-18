@@ -179,14 +179,29 @@ body {
 /* Split */
 .ledger-split {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 350px;
   gap: 30px;
+  align-items: start;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .ledger-split {
     grid-template-columns: 1fr;
   }
+}
+
+.side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.active-nav {
+  color: #fff !important;
+  text-shadow: 0 0 10px var(--ledger-red);
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* Table */
