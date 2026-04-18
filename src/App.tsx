@@ -64,15 +64,27 @@ function App() {
         </section>
 
         <div className="ledger-split">
-          <section className="terminal-window access-section">
-            <div className="terminal-header">SUBSYSTEM: DEBT_MITIGATION_TERMINAL</div>
-            <div className="terminal-content access-prompt">
-              <Rocket size={40} className="mb-20" />
-              <h3 className="mono">VEIL_RUNNER_INTERFACE</h3>
-              <p>Direct neural link to stealth ship telemetry. Perform high-risk Veil runs to manually reduce Life-Lease debt holdings.</p>
-              <button onClick={() => setIsGameOpen(true)} className="btn-terminal">
-                INITIALIZE_TERMINAL_LINK
-              </button>
+          <section className="terminal-window data-section">
+            <div className="terminal-header">DATABASE: ACTIVE_RECOVERY_QUEUES</div>
+            <div className="table-wrap">
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th>ACC_ID</th>
+                    <th>CLIENT_ENTITY</th>
+                    <th>STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {accounts.map(acc => (
+                    <tr key={acc.id} className={acc.status === 'OVERDUE' ? 'row-overdue' : ''}>
+                      <td>{acc.id}</td>
+                      <td>{acc.client}</td>
+                      <td className={acc.status === 'OVERDUE' ? 'blink' : ''}>{acc.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </section>
 
@@ -112,32 +124,20 @@ function App() {
                 </AnimatePresence>
               </div>
             </section>
-
-            <section className="terminal-window data-section">
-              <div className="terminal-header">DATABASE: ACTIVE_RECOVERY_QUEUES</div>
-              <div className="table-wrap">
-                <table className="data-table">
-                  <thead>
-                    <tr>
-                      <th>ACC_ID</th>
-                      <th>CLIENT_ENTITY</th>
-                      <th>STATUS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {accounts.map(acc => (
-                      <tr key={acc.id} className={acc.status === 'OVERDUE' ? 'row-overdue' : ''}>
-                        <td>{acc.id}</td>
-                        <td>{acc.client}</td>
-                        <td className={acc.status === 'OVERDUE' ? 'blink' : ''}>{acc.status}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
           </div>
         </div>
+
+        <section className="terminal-window access-section">
+          <div className="terminal-header">SUBSYSTEM: DEBT_MITIGATION_TERMINAL</div>
+          <div className="terminal-content access-prompt">
+            <Rocket size={40} className="mb-20" />
+            <h3 className="mono">VEIL_RUNNER_INTERFACE</h3>
+            <p>Direct neural link to stealth ship telemetry. Perform high-risk Veil runs to manually reduce Life-Lease debt holdings.</p>
+            <button onClick={() => setIsGameOpen(true)} className="btn-terminal">
+              INITIALIZE_TERMINAL_LINK
+            </button>
+          </div>
+        </section>
 
         <section className="meeting-panel terminal-window">
           <div className="terminal-header">INTEL_FEED: BOARD_MEETING_242</div>
