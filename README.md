@@ -12,6 +12,7 @@ The Red Ledger manages the financial infrastructure of the underworld. Based in 
 - **Life-Lease Calculator:** Proprietary valuation tool for estimating remaining operational lifespan based on debt holdings.
 - **Intel Feed:** Transcripts and notes from board meetings regarding Alpha-collapse mitigation.
 - **Debt Ticker:** Real-time monitoring of recovery progress across all sectors.
+- **The Debt Run:** High-stakes endless runner. Pilot a stealth ship through the Deep Veil to manually reduce Life-Lease debt holdings. (Accessible via Terminal Overlay)
 
 ## [ ACCOUNTING NOTICE ]
 All transactions are final. Refusal to pay will result in Level 5 repossession of all physical and biological assets.
