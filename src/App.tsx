@@ -156,32 +156,3 @@ function App() {
 }
 
 export default App;
-
-
-        <section className="meeting-panel terminal-window">
-          <div className="terminal-header">INTEL_FEED: BOARD_MEETING_242</div>
-          <div className="meeting-content">
-             <div className="meeting-img">
-               <img src="/images/ledger-meeting.png" alt="Board" />
-             </div>
-             <div className="meeting-notes">
-               <h3 className="mono">AGENDA: ALPHA_COLLAPSE_MITIGATION</h3>
-               <p>Targeting secondary faction assets. Authorization granted for Level 5 repossession of all Axium-aligned ore-haulers in Sector 4.</p>
-               <button className="btn-terminal mt-10"><FileText size={14}/> DOWNLOAD_TRANSCRIPT.PDF</button>
-             </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="ledger-footer">
-        <div className="ticker-ledger">
-          <span>DEBT_RECOVERY_IN_PROGRESS... RL-442: 12.1M... RL-109: 44k... RL-882: 1.5B... RL-332: 9.4M... RL-551: 2.2M...</span>
-        </div>
-        <p className="mono">TERMINAL v4.2 // NO UNAUTHORIZED LOGS // ALL TRANSACTIONS FINAL</p>
-      </footer>
-    </div>
-  );
-}
-
-export default App;
-
