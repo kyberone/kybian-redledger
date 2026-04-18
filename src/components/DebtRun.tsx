@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from ' AnimatePresence';
-import { Shield, TrendingUp, RefreshCw, Rocket, Zap, Asterisk } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Shield, TrendingUp, RefreshCw, Rocket } from 'lucide-react';
 import './DebtRun.css';
 
 interface GameObject {
