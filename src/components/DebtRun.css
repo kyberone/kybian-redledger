@@ -60,13 +60,21 @@ canvas {
   opacity: 0.9;
 }
 
-.controls-hint {
-  margin-bottom: 30px;
+.instructions-box {
+  background: rgba(255, 62, 62, 0.05);
+  border: 1px solid var(--ledger-dim);
   padding: 15px;
-  border: 1px dashed var(--ledger-dim);
-  font-size: 0.7rem;
-  color: var(--ledger-red);
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 0.75rem;
 }
+
+.instructions-box p {
+  margin: 5px 0;
+  color: #fff;
+}
+
+.mb-20 { margin-bottom: 20px; }
 
 .controls-hint p {
   margin: 5px 0;

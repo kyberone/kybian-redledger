@@ -233,10 +233,14 @@ const DebtRun: React.FC = () => {
               <div className="overlay-content">
                 <Rocket className="gold-text mb-20" size={40} />
                 <h2 className="mono">THE DEBT RUN</h2>
-                <p>Pilot through the Deep Veil. Collecting Shards reduces your debt. Hitting debris increases it.</p>
+                <div className="instructions-box mono">
+                  <p>OBJECTIVE: SURVIVE THE DEEP VEIL</p>
+                  <p>• [ WHITE_DIAMONDS ]: ALPHA SHARDS (-25k DEBT)</p>
+                  <p>• [ RED_BOXES ]: RADIOACTIVE DEBRIS (+75k DEBT)</p>
+                  <p>• [ MOUSE ]: STEER YOUR STEALTH SHIP</p>
+                </div>
                 <div className="controls-hint">
-                  <p>[ MOUSE_MOVE ] TO STEER</p>
-                  <p>IF DEBT REACHES 5.0M, YOUR LEASE IS TERMINATED.</p>
+                  <p>WARNING: IF DEBT EXCEEDS 5.0M ALPHA, YOUR LIFE-LEASE IS TERMINATED.</p>
                 </div>
                 <button onClick={startGame} className="btn-start">
                   INITIATE_VEIL_JUMP
